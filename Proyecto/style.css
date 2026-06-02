@@ -1,0 +1,1418 @@
+/* ================================================
+   VARIABLES GLOBALES — Colores, fuentes y espaciados
+   Úsalas en todo el proyecto con var(--nombre)
+   ================================================ */
+
+:root {
+
+  --color-primary: #5B5BD6;        
+  --color-primary-dark: #4747C2;  
+  --color-primary-light: #EEEEFF;
+  --color-bg: #FFFFFF;            
+  --color-bg-soft: #F7F7FB;      
+  --color-bg-hero: #EEEEFF;       
+  --color-border: #E5E7EB;        
+  --color-text: #111827;           
+  --color-text-muted: #6B7280;     
+  --color-text-white: #FFFFFF;     
+  --color-green: #22C55E;          
+  --color-orange: #F97316;         
+  --color-gray-badge: #9CA3AF;    
+  --color-pink-section: #FFF0F3;  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+
+
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ================================================
+   RESET Y BASE GLOBAL
+   Aplica a todos los elementos del sitio
+   ================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ================================================
+   NAVBAR — Barra de navegación superior (todas las páginas)
+   Sticky: se queda fija al hacer scroll
+   ================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 64px;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+  background-color: var(--color-bg-soft);
+}
+
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+
+.btn-nav-cta {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-text-white) !important;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-nav-cta:hover {
+  background-color: var(--color-primary-dark) !important;
+  transform: translateY(-1px);
+  color: var(--color-text-white) !important;
+  background-color: var(--color-primary-dark);
+}
+
+/* ================================================
+   BOTONES GLOBALES — Reutilizables en todo el sitio
+   ================================================ */
+
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  background-color: #5B5BD6;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ================================================
+   INDEX — HERO PRINCIPAL
+   Sección de bienvenida con imagen de fondo e imagen de mascota
+   ================================================ */
+.hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #2a2a2a; 
+}
+
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  padding: 2rem;
+  color: var(--color-text-white);
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* ==========================================================================
+   4. CARRUSEL AUTOMÁTICO (CSS PURO)
+   ========================================================================== */
+
+
+.carrusel {
+  max-width: 800px;
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: mover 9s infinite;
+}
+
+.slide {
+  width: 33.333%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animación que mueve el carrusel automáticamente */
+@keyframes mover {
+  0%        { transform: translateX(0%); }
+  28%       { transform: translateX(0%); }
+  33.333%   { transform: translateX(-33.333%); }
+  61%       { transform: translateX(-33.333%); }
+  66.666%   { transform: translateX(-66.666%); }
+  94%       { transform: translateX(-66.666%); }
+  100%      { transform: translateX(0%); }
+}
+
+/* Puntos de navegación animados */
+.navegacion {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.barrita {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  transition: background-color 0.3s;
+}
+
+.barrita:nth-child(1) { animation: punto1 9s infinite; }
+.barrita:nth-child(2) { animation: punto2 9s infinite; }
+.barrita:nth-child(3) { animation: punto3 9s infinite; }
+
+@keyframes punto1 {
+  0%      { background-color: #fff; width: 30px; border-radius: 10px; }
+  33%     { background-color: #fff; width: 30px; border-radius: 10px; }
+  33.1%   { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  100%    { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+}
+
+@keyframes punto2 {
+  0%      { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  33%     { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  33.1%   { background-color: #fff; width: 30px; border-radius: 10px; }
+  66%     { background-color: #fff; width: 30px; border-radius: 10px; }
+  66.1%   { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  100%    { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+}
+
+@keyframes punto3 {
+  0%      { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  66%     { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  66.1%   { background-color: #fff; width: 30px; border-radius: 10px; }
+  94%     { background-color: #fff; width: 30px; border-radius: 10px; }
+  94.1%   { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+  100%    { background-color: rgba(255,255,255,0.5); width: 15px; border-radius: 50%; }
+}
+/* ==========================================================================
+   5. SECCIONES DESTACADAS (TARJETAS)
+   ========================================================================== */
+.grid-destacados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card-destacada {
+    background: white;
+    padding: 10px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 4px solid #7FBF9F;
+    transition: transform 0.3s;
+}
+
+.card-destacada:hover {
+    transform: translateY(-5px);
+}
+
+.card-destacada h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.card-destacada p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ================================================
+   INDEX — SECCIÓN MISIÓN Y VISIÓN
+   Dos tarjetas lado a lado
+   ================================================ */
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 8%;
+  background-color: var(--color-bg);
+}
+
+.mv-card {
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+
+.mv-card.vision {
+  background-color: var(--color-pink-section);
+}
+
+
+.mv-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-sm);
+  font-size: 1.4rem;
+}
+
+.mv-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.mv-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ================================================
+   INDEX — SECCIÓN "CÓMO PUEDES AYUDAR"
+   Cuatro tarjetas con imagen + texto + link
+   ================================================ */
+.how-to-help {
+  padding: var(--spacing-xl) 8%;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+
+.help-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.help-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+
+.help-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+
+.help-card-body {
+  padding: 1rem;
+}
+
+.help-card-body h4 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.help-card-body p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+
+.help-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.help-card-link:hover {
+  color: var(--color-primary);
+}
+
+/* ================================================
+   INDEX — SECCIÓN "HUELLAS FELICES" (Galería)
+   Cuatro fotos de mascotas en nuevo hogar
+   ================================================ */
+.success-stories {
+  padding: var(--spacing-xl) 8%;
+  background-color: var(--color-bg);
+}
+
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.section-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+
+.link-ver-todos {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: opacity 0.2s;
+}
+
+.link-ver-todos:hover {
+  opacity: 0.75;
+}
+
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-sm);
+}
+
+
+.story-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.story-item p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ================================================
+   INDEX — SECCIÓN CTA INFERIOR
+   "Tu compromiso hace la diferencia"
+   ================================================ */
+.cta-section {
+  padding: var(--spacing-xl) 8%;
+  background-color: var(--color-bg-soft);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-xl) 8%;
+}
+
+.cta-section .mv-icon {
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-section h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.cta-section p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--spacing-md);
+  line-height: 1.7;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================================================
+   ADOPTA — HERO DE LA PÁGINA
+   Encabezado con eyebrow, título y descripción
+   ================================================ */
+.page-hero {
+  padding: var(--spacing-xl) 8% var(--spacing-lg);
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.eyebrow-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-hero h1 span {
+  color: var(--color-primary);
+}
+
+.page-hero h2 span {
+  color: var(--color-primary);
+}
+.page-hero p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ================================================
+   ADOPTA — FILTROS DE BÚSQUEDA
+   Tabs "Todos / Perros / Gatos" + contador
+   ================================================ */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+
+.filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+
+.filter-tab.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+}
+
+
+.filter-count {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================================================
+   ADOPTA — GRID DE TARJETAS DE MASCOTAS
+   ================================================ */
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  padding: 0 8% var(--spacing-xl);
+}
+
+
+.pet-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+
+.pet-card-img-wrap {
+  position: relative;
+}
+
+.pet-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.status-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.status-badge.disponible { background-color: var(--color-green); }
+.status-badge.en-proceso { background-color: var(--color-orange); }
+.status-badge.adoptado   { background-color: var(--color-gray-badge); }
+
+.btn-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.btn-fav:hover { transform: scale(1.1); }
+
+
+.pet-card-body {
+  padding: 1rem;
+}
+
+
+.pet-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.pet-card-body h3 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+
+.size-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-soft);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+
+.pet-breed {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+
+.pet-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+
+.pet-quote {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
+
+  /* Truncar en 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-ver-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-ver-perfil:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+
+.btn-ver-perfil.success {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+/* ================================================
+   ADOPTA — BANNER "¿Cómo funciona el proceso?"
+   ================================================ */
+.process-banner {
+  margin: 0 8% var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.process-banner-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.process-banner-text h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.process-banner-text p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ================================================
+   ADOPTA — SECCIÓN "¿No puedes adoptar?"
+   Corazón + texto + dos botones
+   ================================================ */
+.cant-adopt {
+  padding: var(--spacing-xl) 8%;
+  text-align: center;
+}
+
+.cant-adopt-icon {
+  font-size: 2rem;
+  color: #F43F5E;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cant-adopt h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.cant-adopt p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin: 0 auto var(--spacing-md);
+  line-height: 1.7;
+}
+
+/* ================================================
+   CONTACTO — HERO DE LA PÁGINA
+   Fondo claro con eyebrow + título grande
+   ================================================ */
+.contact-hero {
+  padding: var(--spacing-xl) 8%;
+  background-color: var(--color-bg-hero);
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: var(--spacing-sm);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-hero p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ================================================
+   CONTACTO — LAYOUT PRINCIPAL (formulario + info)
+   Dos columnas: formulario a la izq, info a la der
+   ================================================ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 8%;
+  align-items: start;
+}
+
+/* ================================================
+   CONTACTO — TARJETA DEL FORMULARIO (izquierda)
+   ================================================ */
+.contact-form-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form-card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-form-card > p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+
+.contact-form .full-width {
+  grid-column: 1 / -1;
+}
+
+
+.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease;
+}
+
+
+.contact-form input.valid {
+  border-color: var(--color-green);
+}
+
+
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #EF4444;
+}
+
+
+.field-error {
+  font-size: 0.78rem;
+  color: #EF4444;
+  margin-top: 4px;
+}
+
+
+.field-success {
+  font-size: 0.78rem;
+  color: var(--color-green);
+  margin-top: 4px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+
+.form-legal {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ================================================
+   CONTACTO — TARJETA DE INFORMACIÓN (derecha)
+   Correo, teléfono, ubicación, horario, redes
+   ================================================ */
+.contact-info-card {
+  background-color: #FFF0F3;
+  border: 1px solid #FECDD3;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.contact-info-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.info-item h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.info-item p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.social-section h4 {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.social-section p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+
+.social-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ================================================
+   GALERÍA — Contenedor y tarjetas de fotos
+   ================================================ */
+.gallery-section {
+  padding: var(--spacing-xl) 8%;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.gallery-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* ================================================
+   FOOTER — Pie de página (todas las páginas)
+   4 columnas: logo/desc, Fundación, Ayuda, Contacto
+   ================================================ */
+.footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 8% var(--spacing-md);
+}
+
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+
+.footer-logo {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+
+.footer-col h4 {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-primary);
+}
+
+.footer-col p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ================================================
+   RESPONSIVE — Tablets (max 1024px)
+   ================================================ */
+@media (max-width: 1024px) {
+  
+  .stats-band {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  
+  .help-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+ 
+  .pets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  
+  .stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer: 2 columnas en tablet */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — Móviles (max 767px)
+   ================================================ */
+@media (max-width: 767px) {
+  /* Navbar en columna en móvil */
+  .navbar {
+    height: auto;
+    padding: 12px 5%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    padding: 5px 10px;
+  }
+
+  /* Misión/Visión: 1 columna en móvil */
+  .mission-vision {
+    grid-template-columns: 1fr;
+  }
+
+  /* Estadísticas: 2x2 en móvil */
+  .stats-band {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  /* Ayuda: 1 columna en móvil */
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mascotas: 1 columna en móvil */
+  .pets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stories: 2 columnas en móvil */
+  .stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contacto: 1 columna en móvil */
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Formulario: 1 columna en móvil */
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer: 1 columna en móvil */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  /* Footer bottom: centrado en móvil */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Padding reducido en móvil */
+  .page-hero,
+  .how-to-help,
+  .success-stories,
+  .cant-adopt,
+  .contact-hero,
+  .contact-layout,
+  .gallery-section,
+  .footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .process-banner {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .cta-section {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
